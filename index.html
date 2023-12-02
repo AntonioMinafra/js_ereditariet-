@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Persona ( nome, cognome, età, genere, interessi){
+            this.nome = nome;
+            this.cognome = cognome;
+            this.età = età;
+            this.genere = genere;
+            this.interessi = interessi;
+            this.saluta = function() {
+                console.log(`ciao sono' ${this.nome}`);
+            };
+        };
+
+        function Insegnante( nome, cognome, età, genere, interessi, materia) {
+            Persona.call(this, nome, cognome, età, genere, interessi);
+            
+            this.materia = materia;
+            this.saluta = function() {
+                console.log(`Buongiorno sono ${this.nome} ${this.cognome}`);
+            };
+        };
+
+        const insegnante = new Insegnante ('anna', 'blu', 32, 'femmina', ['netflix'], 'storia');
+        console.log(insegnante);
+        insegnante.saluta();
+    </script>
+</body>
+</html>
